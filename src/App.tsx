@@ -1,8 +1,10 @@
+import Header from "./assets/components/Header/header"
+
 function App() {
 
   return (
     <div>
-        <h1 className="bg-blue-500">Salut</h1>
+        <Header />
     </div>
   )
 }
