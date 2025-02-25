@@ -6,7 +6,7 @@
       "description": "Un RPG en monde ouvert où vous incarnez Geralt de Riv dans une quête épique.",
       "rating": 5,
       "category": "RPG",
-      "image": "https://example.com/witcher3.jpg"
+      "image": "https://www.defimode.org/wp-content/uploads/2021/04/bulletin-51-gaming.jpg"
     },
     {
       "id": 2,
@@ -14,7 +14,7 @@
       "description": "Un action-RPG exigeant avec un univers sombre et mystérieux.",
       "rating": 5,
       "category": "Action-RPG",
-      "image": "https://example.com/darksouls3.jpg"
+      "image": "https://www.defimode.org/wp-content/uploads/2021/04/bulletin-51-gaming.jpg"
     },
     {
       "id": 3,
@@ -22,7 +22,7 @@
       "description": "Un RPG futuriste se déroulant dans la mégapole de Night City.",
       "rating": 4,
       "category": "RPG",
-      "image": "https://example.com/cyberpunk2077.jpg"
+      "image": "https://www.defimode.org/wp-content/uploads/2021/04/bulletin-51-gaming.jpg"
     },
     {
       "id": 4,
@@ -30,7 +30,7 @@
       "description": "Un western en monde ouvert avec une histoire immersive.",
       "rating": 5,
       "category": "Aventure",
-      "image": "https://example.com/rdr2.jpg"
+      "image": "https://www.defimode.org/wp-content/uploads/2021/04/bulletin-51-gaming.jpg"
     },
     {
       "id": 5,
@@ -38,7 +38,7 @@
       "description": "Un vaste monde ouvert signé FromSoftware avec des combats intenses.",
       "rating": 5,
       "category": "Action-RPG",
-      "image": "https://example.com/eldenring.jpg"
+      "image": "https://www.defimode.org/wp-content/uploads/2021/04/bulletin-51-gaming.jpg"
     },
     {
       "id": 6,
@@ -46,7 +46,7 @@
       "description": "Un Metroidvania avec une direction artistique unique.",
       "rating": 5,
       "category": "Metroidvania",
-      "image": "https://example.com/hollowknight.jpg"
+      "image": "https://www.defimode.org/wp-content/uploads/2021/04/bulletin-51-gaming.jpg"
     },
     {
       "id": 7,
@@ -54,7 +54,7 @@
       "description": "Un FPS frénétique où vous affrontez des démons dans des combats brutaux.",
       "rating": 4,
       "category": "FPS",
-      "image": "https://example.com/doom_eternal.jpg"
+      "image": "https://www.defimode.org/wp-content/uploads/2021/04/bulletin-51-gaming.jpg"
     },
     {
       "id": 8,
@@ -62,7 +62,7 @@
       "description": "Un chef-d'œuvre en monde ouvert avec une exploration sans limite.",
       "rating": 5,
       "category": "Aventure",
-      "image": "https://example.com/zelda_botw.jpg"
+      "image": "https://www.defimode.org/wp-content/uploads/2021/04/bulletin-51-gaming.jpg"
     },
     {
       "id": 9,
@@ -70,7 +70,7 @@
       "description": "Un jeu d'action exigeant dans le Japon féodal.",
       "rating": 5,
       "category": "Action",
-      "image": "https://example.com/sekiro.jpg"
+      "image": "https://www.defimode.org/wp-content/uploads/2021/04/bulletin-51-gaming.jpg"
     },
     {
       "id": 10,
@@ -78,7 +78,7 @@
       "description": "L'histoire épique de Kratos et son fils Atreus dans la mythologie nordique.",
       "rating": 5,
       "category": "Action-Aventure",
-      "image": "https://example.com/godofwar.jpg"
+      "image": "https://www.defimode.org/wp-content/uploads/2021/04/bulletin-51-gaming.jpg"
     },
     {
       "id": 11,
@@ -86,7 +86,7 @@
       "description": "Un jeu de gestion agricole relaxant et addictif.",
       "rating": 5,
       "category": "Simulation",
-      "image": "https://example.com/stardewvalley.jpg"
+      "image": "https://www.defimode.org/wp-content/uploads/2021/04/bulletin-51-gaming.jpg"
     },
     {
       "id": 12,
@@ -94,7 +94,7 @@
       "description": "Un jeu de survie et de construction dans un monde en blocs infini.",
       "rating": 5,
       "category": "Sandbox",
-      "image": "https://example.com/minecraft.jpg"
+      "image": "https://www.defimode.org/wp-content/uploads/2021/04/bulletin-51-gaming.jpg"
     },
     {
       "id": 13,
@@ -102,7 +102,7 @@
       "description": "Un survival horror culte avec un gameplay révolutionnaire.",
       "rating": 5,
       "category": "Survival Horror",
-      "image": "https://example.com/re4.jpg"
+      "image": "https://www.defimode.org/wp-content/uploads/2021/04/bulletin-51-gaming.jpg"
     },
     {
       "id": 14,
@@ -110,7 +110,7 @@
       "description": "Un FPS multijoueur dynamique avec des héros aux capacités uniques.",
       "rating": 3,
       "category": "FPS",
-      "image": "https://example.com/overwatch2.jpg"
+      "image": "https://www.defimode.org/wp-content/uploads/2021/04/bulletin-51-gaming.jpg"
     },
     {
       "id": 15,
@@ -118,7 +118,7 @@
       "description": "Un jeu de plateforme exigeant avec une histoire touchante.",
       "rating": 5,
       "category": "Plateforme",
-      "image": "https://example.com/celeste.jpg"
+      "image": "https://www.defimode.org/wp-content/uploads/2021/04/bulletin-51-gaming.jpg"
     }
   ]
   

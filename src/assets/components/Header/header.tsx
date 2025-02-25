@@ -16,7 +16,7 @@ export default function Header() {
         </div>
 
         {/* Bouton Ajout */}
-        <button className="bg-green-600 hover:bg-green-500 text-white p-3 rounded-full transition duration-300 shadow-md flex items-center justify-center">
+        <button className="bg-green-600 hover:bg-green-500 text-white p-3 rounded-full transition duration-300 shadow-md flex items-center justify-center cursor-pointer">
           <span className="text-2xl font-bold">+</span>
         </button>
 
