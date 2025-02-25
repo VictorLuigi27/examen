@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Footer() {
   return (
     <div className="bg-blue-950 text-white p-6 border-t-[3px] border-white">
@@ -11,9 +13,9 @@ export default function Footer() {
 
         {/* Liens utiles */}
         <div className="flex flex-col gap-2">
-          <a href="#" className="hover:underline cursor-pointer">À propos</a>
-          <a href="#" className="hover:underline cursor-pointer">Conditions générales</a>
-          <a href="#" className="hover:underline cursor-pointer">Confidentialité</a>
+          <Link to={"/à-propos"} className="hover:underline cursor-pointer">À propos</Link>
+          <Link to={"/conditions-generales"} className="hover:underline cursor-pointer">Conditions générales</Link>
+          <Link to={"/confidentialites"} className="hover:underline cursor-pointer">Confidentialité</Link>
         </div>
 
         {/* Réseaux sociaux */}
@@ -25,8 +27,8 @@ export default function Footer() {
             className="hover:underline cursor-pointer text-blue-400">
             LinkedIn
           </a>
-          <a href="#" className="hover:underline cursor-pointer text-blue-400">Twitter</a>
-          <a href="#" className="hover:underline cursor-pointer text-blue-400">Instagram</a>
+          <a href="https://my-portfolio-theta-sage.vercel.app/" target="_blank"  className="hover:underline cursor-pointer text-blue-400">Portfolio</a>
+          
         </div>
       </div>
     </div>

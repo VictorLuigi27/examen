@@ -7,6 +7,9 @@ import Modification from "./assets/components/Modification/modification";
 import Ajout from "./assets/components/Ajout/ajout";
 import Connexion from "./assets/components/Connexion/connexion";
 import Inscription from "./assets/components/Inscription/inscription";
+import Propos from "./assets/components/Propos/propos";
+import Conditions from "./assets/components/Conditions/conditions";
+import Confidentialite from "./assets/components/Confidentialites/confidentialites";
 
 function App() {
   return (
@@ -19,6 +22,9 @@ function App() {
         <Route path="/ajouter" element={<Ajout />} />
         <Route path="/connexion" element={<Connexion />} />
         <Route path="/inscription" element={<Inscription />} />
+        <Route path="/à-propos" element={<Propos />} />
+        <Route path="/conditions-generales" element={<Conditions />} />
+        <Route path="/confidentialites" element={<Confidentialite />} />
       </Routes>
       <Footer />
     </Router>
