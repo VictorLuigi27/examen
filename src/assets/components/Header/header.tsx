@@ -1,12 +1,17 @@
+import { Link } from 'react-router-dom';
+
 export default function Header() {
   return (
     <div className="bg-blue-950 text-white p-4 border-b-[3px] border-blue-600 shadow-lg pr-[4.5rem]">
       <div className="max-w-screen-lg mx-auto flex items-center justify-between">
         
-        {/* Logo */}
-        <h1 className="text-4xl font-bold">PIXEL</h1>
+        {/* Logo du site */}
+        <Link to={"/"}>
+          <h1 className="text-4xl font-bold">PIXEL</h1>
+        </Link>
+        
 
-        {/* Barre de recherche */}
+        {/* La barre de recherche */}
         <div className="flex-1 flex justify-center">
           <input
             type="text"
@@ -15,7 +20,7 @@ export default function Header() {
           />
         </div>
 
-        {/* Bouton Ajout */}
+        {/* Pour ajouter un jeu */}
         <button className="bg-green-600 hover:bg-green-500 text-white p-3 rounded-full transition duration-300 shadow-md flex items-center justify-center cursor-pointer">
           <span className="text-2xl font-bold">+</span>
         </button>
