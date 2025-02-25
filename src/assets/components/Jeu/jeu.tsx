@@ -17,7 +17,7 @@ export default function Jeu() {
   const [jeu, setJeu] = useState<JeuData | null>(null);
 
   useEffect(() => {
-    fetch("public/data/data.json")
+    fetch("/data/data.json")
       .then((res) => res.json())
       .then((data: JeuData[]) => {
         const selectedGame = data.find((item) => item.id === Number(id));

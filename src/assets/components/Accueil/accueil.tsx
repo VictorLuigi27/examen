@@ -14,7 +14,7 @@ export default function Accueil() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("public/data/data.json")
+    fetch("/data/data.json")
       .then((res) => res.json())
       .then((data) => setGamesData(data))
       .catch((error) => console.error("Erreur de chargement des jeux :", error));
