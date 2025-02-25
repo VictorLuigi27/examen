@@ -25,7 +25,7 @@ export default function Accueil() {
 
   return (
     <div className="bg-blue-950 text-white min-h-screen flex flex-col items-center justify-center p-4">
-      
+
       <h1 className="text-4xl mb-4">Accueil</h1>
 
       {/* Label accessible */}
@@ -50,7 +50,7 @@ export default function Accueil() {
       </select>
 
       {/* Cartes des jeux */}
-      <div className="grid grid-cols-3 gap-10 mt-20">
+      <div className="grid grid-cols-3 gap-10 mt-20 mb-12">
         {filteredGames.map((game) => (
           <div
             key={game.id}
