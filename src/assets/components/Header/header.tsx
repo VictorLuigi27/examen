@@ -21,10 +21,12 @@ export default function Header() {
         </div>
 
         {/* Pour ajouter un jeu */}
-        <button className="bg-green-600 hover:bg-green-500 text-white p-3 rounded-full transition duration-300 shadow-md flex items-center justify-center cursor-pointer">
-          <span className="text-2xl font-bold">+</span>
-        </button>
-
+        <Link to={"/ajouter"}>
+          <button className="bg-green-600 hover:bg-green-500 text-white p-3 rounded-full transition duration-300 shadow-md flex items-center justify-center cursor-pointer">
+            <span className="text-2xl font-bold">+</span>
+          </button>
+        </Link>
+        
       </div>
     </div>
   );

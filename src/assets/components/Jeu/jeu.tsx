@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { FaStar, FaRegStar, FaEdit, FaTrash } from "react-icons/fa";
@@ -37,7 +38,7 @@ export default function Jeu() {
         <div className="md:w-1/3 flex flex-col items-center">
           <img src={jeu.image} alt={jeu.title} className="rounded-lg shadow-md w-full mb-3" />
 
-          {/* Étoiles */}
+          {/* Les étoiles */}
           <div className="flex gap-1 mb-3">
             {[...Array(5)].map((_, index) =>
               index < jeu.rating ? (
@@ -48,11 +49,14 @@ export default function Jeu() {
             )}
           </div>
 
-          {/* Boutons */}
+          {/* Les boutons de modifications et supprimer */}
           <div className="flex flex-col gap-2 w-full">
-            <button className="bg-blue-600 hover:bg-blue-500 text-white px-3 py-2 rounded-lg flex items-center justify-center gap-2 transition duration-300 cursor-pointer w-full">
-              <FaEdit /> Modifier
-            </button>
+            <Link to={"/modifier"}>
+                <button className="bg-blue-600 hover:bg-blue-500 text-white px-3 py-2 rounded-lg flex items-center justify-center gap-2 transition duration-300 cursor-pointer w-full">
+                <FaEdit /> Modifier
+                </button>
+            </Link>
+
             <button className="bg-red-600 hover:bg-red-500 text-white px-3 py-2 rounded-lg flex items-center justify-center gap-2 transition duration-300 cursor-pointer w-full">
               <FaTrash /> Supprimer
             </button>
@@ -61,8 +65,8 @@ export default function Jeu() {
 
         {/* Partie droite : Titre + Description */}
         <div className="md:w-2/3 flex flex-col">
-          <h1 className="text-2xl font-bold mb-3">{jeu.title}</h1> {/* Espacement réduit */}
-          <p className="text-gray-300">{jeu.description}</p> {/* Moins d'écart */}
+          <h1 className="text-2xl font-bold mb-3">{jeu.title}</h1>
+          <p className="text-gray-300">{jeu.description}</p> 
         </div>
 
       </div>
