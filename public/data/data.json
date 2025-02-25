@@ -1,0 +1,124 @@
+
+[
+    {
+      "id": 1,
+      "title": "The Witcher 3: Wild Hunt",
+      "description": "Un RPG en monde ouvert où vous incarnez Geralt de Riv dans une quête épique.",
+      "rating": 5,
+      "category": "RPG",
+      "image": "https://example.com/witcher3.jpg"
+    },
+    {
+      "id": 2,
+      "title": "Dark Souls III",
+      "description": "Un action-RPG exigeant avec un univers sombre et mystérieux.",
+      "rating": 5,
+      "category": "Action-RPG",
+      "image": "https://example.com/darksouls3.jpg"
+    },
+    {
+      "id": 3,
+      "title": "Cyberpunk 2077",
+      "description": "Un RPG futuriste se déroulant dans la mégapole de Night City.",
+      "rating": 4,
+      "category": "RPG",
+      "image": "https://example.com/cyberpunk2077.jpg"
+    },
+    {
+      "id": 4,
+      "title": "Red Dead Redemption 2",
+      "description": "Un western en monde ouvert avec une histoire immersive.",
+      "rating": 5,
+      "category": "Aventure",
+      "image": "https://example.com/rdr2.jpg"
+    },
+    {
+      "id": 5,
+      "title": "Elden Ring",
+      "description": "Un vaste monde ouvert signé FromSoftware avec des combats intenses.",
+      "rating": 5,
+      "category": "Action-RPG",
+      "image": "https://example.com/eldenring.jpg"
+    },
+    {
+      "id": 6,
+      "title": "Hollow Knight",
+      "description": "Un Metroidvania avec une direction artistique unique.",
+      "rating": 5,
+      "category": "Metroidvania",
+      "image": "https://example.com/hollowknight.jpg"
+    },
+    {
+      "id": 7,
+      "title": "DOOM Eternal",
+      "description": "Un FPS frénétique où vous affrontez des démons dans des combats brutaux.",
+      "rating": 4,
+      "category": "FPS",
+      "image": "https://example.com/doom_eternal.jpg"
+    },
+    {
+      "id": 8,
+      "title": "The Legend of Zelda: Breath of the Wild",
+      "description": "Un chef-d'œuvre en monde ouvert avec une exploration sans limite.",
+      "rating": 5,
+      "category": "Aventure",
+      "image": "https://example.com/zelda_botw.jpg"
+    },
+    {
+      "id": 9,
+      "title": "Sekiro: Shadows Die Twice",
+      "description": "Un jeu d'action exigeant dans le Japon féodal.",
+      "rating": 5,
+      "category": "Action",
+      "image": "https://example.com/sekiro.jpg"
+    },
+    {
+      "id": 10,
+      "title": "God of War",
+      "description": "L'histoire épique de Kratos et son fils Atreus dans la mythologie nordique.",
+      "rating": 5,
+      "category": "Action-Aventure",
+      "image": "https://example.com/godofwar.jpg"
+    },
+    {
+      "id": 11,
+      "title": "Stardew Valley",
+      "description": "Un jeu de gestion agricole relaxant et addictif.",
+      "rating": 5,
+      "category": "Simulation",
+      "image": "https://example.com/stardewvalley.jpg"
+    },
+    {
+      "id": 12,
+      "title": "Minecraft",
+      "description": "Un jeu de survie et de construction dans un monde en blocs infini.",
+      "rating": 5,
+      "category": "Sandbox",
+      "image": "https://example.com/minecraft.jpg"
+    },
+    {
+      "id": 13,
+      "title": "Resident Evil 4",
+      "description": "Un survival horror culte avec un gameplay révolutionnaire.",
+      "rating": 5,
+      "category": "Survival Horror",
+      "image": "https://example.com/re4.jpg"
+    },
+    {
+      "id": 14,
+      "title": "Overwatch 2",
+      "description": "Un FPS multijoueur dynamique avec des héros aux capacités uniques.",
+      "rating": 3,
+      "category": "FPS",
+      "image": "https://example.com/overwatch2.jpg"
+    },
+    {
+      "id": 15,
+      "title": "Celeste",
+      "description": "Un jeu de plateforme exigeant avec une histoire touchante.",
+      "rating": 5,
+      "category": "Plateforme",
+      "image": "https://example.com/celeste.jpg"
+    }
+  ]
+  

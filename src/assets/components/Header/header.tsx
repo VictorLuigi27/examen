@@ -1,6 +1,6 @@
 export default function Header() {
     return (
-      <div className="bg-blue-950 text-white p-4 flex items-center justify-between border-b-4 border-blue-500">
+      <div className="bg-blue-950 text-white p-4 border-b-3 border-t-blue-600 flex items-center">
         
         <h1 className="text-4xl font-bold">PIXEL</h1>
   
@@ -15,6 +15,7 @@ export default function Header() {
         <button className="bg-green-600 hover:bg-green-500 text-white p-3 rounded-full flex items-center justify-center transition duration-300 cursor-pointer">
           <span className="text-2xl font-bold">+</span>
         </button>
+        
       </div>
     );
   }
