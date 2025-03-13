@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { FaStar, FaRegStar, FaEdit, FaTrash } from "react-icons/fa";
+import { FaEdit, FaTrash } from "react-icons/fa"
 
 interface JeuData {
   id: number;
@@ -9,7 +9,7 @@ interface JeuData {
   description: string;
   category: string;
   rating: number;
-  image: string;
+  picture: string;
 }
 
 export default function Jeu() {
@@ -43,18 +43,9 @@ export default function Jeu() {
 
         {/* Partie gauche : Image, étoiles, boutons */}
         <div className="md:w-1/3 flex flex-col items-center">
-          <img src={jeu.image} alt={jeu.title} className="rounded-lg shadow-md w-full mb-3" />
+          <img src={jeu.picture} alt={jeu.title} className="rounded-lg shadow-md w-full mb-3" />
 
-          {/* Les étoiles */}
-          <div className="flex gap-1 mb-3">
-            {[...Array(5)].map((_, index) =>
-              index < jeu.rating ? (
-                <FaStar key={index} className="text-yellow-400 text-xl" />
-              ) : (
-                <FaRegStar key={index} className="text-gray-500 text-xl" />
-              )
-            )}
-          </div>
+          
 
           {/* Les boutons de modifications et supprimer */}
           <div className="flex flex-col gap-2 w-full">
