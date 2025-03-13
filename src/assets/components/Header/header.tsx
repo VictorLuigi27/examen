@@ -6,9 +6,9 @@ export default function Header() {
   const [games, setGames] = useState<{ id: number; title: string }[]>([]);
   const [filteredGames, setFilteredGames] = useState<{ id: number; title: string }[]>([]);
 
-  // Charger les jeux depuis data.json
+  // Charger les jeux depuis l'API backend
   useEffect(() => {
-    fetch("../public/data/data.json")
+    fetch("http://127.0.0.1:8000/api/games")  // L'URL de ta route Symfony
       .then((res) => res.json())
       .then((data) => setGames(data))
       .catch((error) => console.error("Erreur lors du chargement des jeux :", error));
