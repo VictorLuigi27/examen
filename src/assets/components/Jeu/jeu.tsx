@@ -17,15 +17,22 @@ export default function Jeu() {
   const [jeu, setJeu] = useState<JeuData | null>(null);
 
   useEffect(() => {
-    fetch("/data/data.json")
-      .then((res) => res.json())
-      .then((data: JeuData[]) => {
-        const selectedGame = data.find((item) => item.id === Number(id));
-        setJeu(selectedGame || null);
-      })
-      .catch((error) => console.error("Erreur lors du chargement du jeu :", error));
+    if (id) {
+      fetch(`http://127.0.0.1:8000/game/${id}`)
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error('Erreur réseau');
+          }
+          return response.json();
+        })
+        .then((data) => {
+          console.log(data);
+          setJeu(data);
+        })
+        .catch((error) => console.error('Erreur lors du chargement du jeu:', error));
+    }
   }, [id]);
-
+  
   if (!jeu) {
     return <div className="text-center text-white text-xl">Jeu non trouvé</div>;
   }
@@ -51,10 +58,10 @@ export default function Jeu() {
 
           {/* Les boutons de modifications et supprimer */}
           <div className="flex flex-col gap-2 w-full">
-            <Link to={"/modifier"}>
-                <button className="bg-blue-600 hover:bg-blue-500 text-white px-3 py-2 rounded-lg flex items-center justify-center gap-2 transition duration-300 cursor-pointer w-full">
+            <Link to={`/modifier/${jeu.id}`}>
+              <button className="bg-blue-600 hover:bg-blue-500 text-white px-3 py-2 rounded-lg flex items-center justify-center gap-2 transition duration-300 cursor-pointer w-full">
                 <FaEdit /> Modifier
-                </button>
+              </button>
             </Link>
 
             <button className="bg-red-600 hover:bg-red-500 text-white px-3 py-2 rounded-lg flex items-center justify-center gap-2 transition duration-300 cursor-pointer w-full">
@@ -66,7 +73,7 @@ export default function Jeu() {
         {/* Partie droite : Titre + Description */}
         <div className="md:w-2/3 flex flex-col">
           <h1 className="text-2xl font-bold mb-3">{jeu.title}</h1>
-          <p className="text-gray-300">{jeu.description}</p> 
+          <p className="text-gray-300">{jeu.description}</p>
         </div>
 
       </div>
