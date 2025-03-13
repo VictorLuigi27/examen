@@ -4,62 +4,36 @@ import { useNavigate } from "react-router-dom";
 interface Game {
   id: number;
   title: string;
-  category: string;
-  rating: number;
+  description: string;
+  picture: string;  // Optionnel si tu veux afficher une image
+  category?: string;  // Ajout de la propriété category
 }
 
 export default function Accueil() {
   const [gamesData, setGamesData] = useState<Game[]>([]);
-  const [selectedFilter, setSelectedFilter] = useState("");
   const navigate = useNavigate();
 
+  // Charger les jeux depuis l'API backend
   useEffect(() => {
-    fetch("/data/data.json")
+    fetch("http://127.0.0.1:8000/api/games")  // L'URL de ta route Symfony
       .then((res) => res.json())
       .then((data) => setGamesData(data))
       .catch((error) => console.error("Erreur de chargement des jeux :", error));
   }, []);
 
-  const categories: string[] = Array.from(new Set(gamesData.map((game) => game.category)));
-
-  let filteredGames = gamesData;
-  if (selectedFilter === "rating") {
-    filteredGames = [...gamesData].sort((a, b) => b.rating - a.rating);
-  } else if (selectedFilter) {
-    filteredGames = gamesData.filter((game) => game.category.toLowerCase() === selectedFilter.toLowerCase());
-  }
-
   return (
     <div className="bg-blue-950 text-white min-h-screen flex flex-col items-center justify-center p-4">
-      <h1 className="text-4xl mb-4">Accueil</h1>
+      <h1 className="text-3xl sm:text-4xl mb-4">Accueil</h1>
 
-      <label htmlFor="filter" className="block mb-2 mt-12 text-2xl font-bold">
-        Filtrer par
-      </label>
-
-      <select
-        id="filter"
-        className="text-black p-3 rounded-md mb-4 mt-2 text-lg border border-gray-300 focus:ring-2 focus:ring-blue-400 focus:outline-none"
-        onChange={(e) => setSelectedFilter(e.target.value)}
-        aria-label="Filtrer les jeux par catégorie ou note"
-      >
-        <option value="">Toutes les catégories</option>
-        {categories.map((category) => (
-          <option key={category} value={category}>
-            {category}
-          </option>
-        ))}
-        <option value="rating">Note</option>
-      </select>
-
-      <div className="grid grid-cols-3 gap-10 mt-20 mb-12">
-        {filteredGames.map((game) => (
+      {/* Mobile-first: grid en colonne pour les petits écrans */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 mt-10 mb-12">
+        {gamesData.map((game) => (
           <div
             key={game.id}
             onClick={() => navigate(`/jeu/${game.id}`)}
-            className="bg-white rounded-2xl w-[15rem] h-[15rem] flex flex-col items-center justify-center shadow-lg cursor-pointer transition-transform transform hover:scale-105"
+            className="bg-white rounded-2xl w-[12rem] sm:w-[15rem] h-[15rem] flex flex-col items-center justify-center shadow-lg cursor-pointer transition-transform transform hover:scale-105"
           >
-            <h2 className="text-black text-xl font-bold text-center">{game.title}</h2>
+            <h2 className="text-black text-sm sm:text-xl font-bold text-center">{game.title}</h2>
           </div>
         ))}
       </div>
