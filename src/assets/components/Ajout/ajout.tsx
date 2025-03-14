@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 
 export default function AjoutJeu() {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     title: "",
     description: "",
@@ -39,6 +41,7 @@ export default function AjoutJeu() {
 
       await response.json();
       setSuccessMessage("Jeu ajouté avec succès ! 🎉");
+      navigate("/");
 
       // Réinitialisation du formulaire après succès
       setFormData({

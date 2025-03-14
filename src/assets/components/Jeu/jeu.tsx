@@ -1,7 +1,7 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { FaEdit, FaTrash } from "react-icons/fa"
+import { FaEdit, FaTrash } from "react-icons/fa";
 
 interface JeuData {
   id: number;
@@ -13,8 +13,11 @@ interface JeuData {
 
 export default function Jeu() {
   const { id } = useParams<{ id: string }>();
+  const navigate = useNavigate(); // Pour rediriger après la suppression
   const [jeu, setJeu] = useState<JeuData | null>(null);
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 
+  // Charger les données du jeu
   useEffect(() => {
     if (id) {
       fetch(`http://127.0.0.1:8000/game/${id}`)
@@ -25,13 +28,39 @@ export default function Jeu() {
           return response.json();
         })
         .then((data) => {
-          console.log(data);
           setJeu(data);
         })
         .catch((error) => console.error('Erreur lors du chargement du jeu:', error));
     }
   }, [id]);
-  
+
+  // Fonction pour supprimer le jeu
+  const handleDelete = async () => {
+    if (id) {
+      try {
+        const response = await fetch(`http://127.0.0.1:8000/game/${id}`, {
+          method: "DELETE",
+        });
+
+        if (!response.ok) {
+          throw new Error('Erreur lors de la suppression du jeu');
+        }
+
+        // Afficher le message de succès
+        setShowSuccessMessage(true);
+        
+        // Rediriger après quelques secondes
+        setTimeout(() => {
+          navigate("/"); // Rediriger vers la page principale
+        }, 2000);
+
+      } catch (error) {
+        console.error("Erreur de suppression :", error);
+        alert("Une erreur est survenue lors de la suppression du jeu.");
+      }
+    }
+  };
+
   if (!jeu) {
     return <div className="text-center text-white text-xl">Jeu non trouvé</div>;
   }
@@ -40,11 +69,9 @@ export default function Jeu() {
     <div className="bg-blue-950 text-white min-h-screen flex items-center justify-center p-6">
       <div className="max-w-4xl w-full bg-blue-900 p-6 rounded-lg shadow-lg flex flex-col md:flex-row gap-6">
 
-        {/* Partie gauche : Image, étoiles, boutons */}
+        {/* Partie gauche : Image, boutons */}
         <div className="md:w-1/3 flex flex-col items-center">
           <img src={jeu.picture} alt={jeu.title} className="rounded-lg shadow-md w-full mb-3" />
-
-          
 
           {/* Les boutons de modifications et supprimer */}
           <div className="flex flex-col gap-2 w-full">
@@ -54,7 +81,10 @@ export default function Jeu() {
               </button>
             </Link>
 
-            <button className="bg-red-600 hover:bg-red-500 text-white px-3 py-2 rounded-lg flex items-center justify-center gap-2 transition duration-300 cursor-pointer w-full">
+            <button
+              onClick={handleDelete}
+              className="bg-red-600 hover:bg-red-500 text-white px-3 py-2 rounded-lg flex items-center justify-center gap-2 transition duration-300 cursor-pointer w-full"
+            >
               <FaTrash /> Supprimer
             </button>
           </div>
@@ -67,6 +97,13 @@ export default function Jeu() {
         </div>
 
       </div>
+
+      {/* Message de succès */}
+      {showSuccessMessage && (
+        <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-green-500 text-white p-4 rounded-lg shadow-lg">
+          Jeu supprimé avec succès !
+        </div>
+      )}
     </div>
   );
 }
