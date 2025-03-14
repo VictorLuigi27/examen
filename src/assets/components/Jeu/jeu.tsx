@@ -8,7 +8,6 @@ interface JeuData {
   title: string;
   description: string;
   category: string;
-  rating: number;
   picture: string;
 }
 

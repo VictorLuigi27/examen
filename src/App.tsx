@@ -18,7 +18,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Accueil />} />
         <Route path="/jeu/:id" element={<Jeu />} />
-        <Route path="/modifier" element={<Modification />} />
+        <Route path="/modifier/:gameId" element={<Modification />} />
         <Route path="/ajouter" element={<Ajout />} />
         <Route path="/connexion" element={<Connexion />} />
         <Route path="/inscription" element={<Inscription />} />
