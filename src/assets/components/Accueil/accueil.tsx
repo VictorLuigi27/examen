@@ -20,7 +20,7 @@ export default function Accueil() {
       .then((data) => setGamesData(data))
       .catch((error) => console.error("Erreur de chargement des jeux :", error));
   }, []);
-
+  
   return (
     <div className="bg-blue-950 text-white min-h-screen flex flex-col items-center justify-center p-4">
       <h1 className="text-3xl sm:text-4xl mb-4">Accueil</h1>

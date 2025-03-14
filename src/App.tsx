@@ -12,6 +12,7 @@ import Conditions from "./assets/components/Conditions/conditions";
 import Confidentialite from "./assets/components/Confidentialites/confidentialites";
 
 function App() {
+  
   return (
     <Router>
       <Header />
