@@ -7,7 +7,7 @@ interface JeuData {
   id: number;
   title: string;
   description: string;
-  category: string;
+  categories: string; // Ajout de la catégorie
   picture: string;
 }
 
@@ -94,6 +94,12 @@ export default function Jeu() {
         <div className="md:w-2/3 flex flex-col">
           <h1 className="text-2xl font-bold mb-3">{jeu.title}</h1>
           <p className="text-gray-300">{jeu.description}</p>
+
+          {/* Affichage de la catégorie du jeu */}
+          <div className="mt-4">
+            <h3 className="text-lg font-semibold">Catégorie :</h3>
+            <p className="text-gray-300">{jeu.categories}</p>
+          </div>
         </div>
 
       </div>
