@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom"; // Importer useParams
+import { useParams, useNavigate } from "react-router-dom"; // Importer useNavigate
 
 export default function Modification() {
   const { gameId } = useParams<{ gameId: string }>(); // Récupère gameId depuis l'URL
+  const navigate = useNavigate(); // Utilise navigate pour rediriger
   const [formData, setFormData] = useState({
     title: "",
     description: "",
@@ -40,12 +41,9 @@ export default function Modification() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // Gérer le changement d’image
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files[0]) {
-      const fileURL = URL.createObjectURL(e.target.files[0]);
-      setFormData({ ...formData, picture: fileURL });
-    }
+  // Gérer le changement d'URL pour l'image
+  const handleImageURLChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData({ ...formData, picture: e.target.value });
   };
 
   // Gérer la soumission du formulaire
@@ -66,6 +64,11 @@ export default function Modification() {
       if (!response.ok) throw new Error("Erreur lors de la modification du jeu.");
 
       setSuccessMessage("Jeu modifié avec succès ! 🎉");
+
+      // Redirection vers la page d'accueil après succès
+      setTimeout(() => {
+        navigate("/"); // Redirige vers la page d'accueil
+      }, 1500); // Attendre un peu avant de rediriger (pour afficher le message de succès)
     } catch (error) {
       console.error(error);
       setSuccessMessage("Une erreur est survenue. Veuillez réessayer.");
@@ -106,12 +109,14 @@ export default function Modification() {
         </label>
 
         <label className="flex flex-col mb-4">
-          <span className="text-gray-300">Image</span>
+          <span className="text-gray-300">Image (URL)</span>
           <input
-            type="file"
-            onChange={handleFileChange}
-            className="p-2 bg-blue-800 text-white border border-blue-700 rounded"
-            accept="image/*"
+            type="text"
+            name="picture"
+            value={formData.picture}
+            onChange={handleImageURLChange}
+            className="p-2 rounded bg-blue-800 text-white border border-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            placeholder="Entrez l'URL de l'image"
           />
           {formData.picture && <img src={formData.picture} alt="Aperçu" className="mt-2 rounded w-full max-h-40 object-cover" />}
         </label>
@@ -131,3 +136,5 @@ export default function Modification() {
     </div>
   );
 }
+
+
