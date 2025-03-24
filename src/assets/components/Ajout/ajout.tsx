@@ -10,48 +10,60 @@ export default function AjoutJeu() {
   });
 
   const [successMessage, setSuccessMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files[0]) {
-      const fileURL = URL.createObjectURL(e.target.files[0]);
-      setFormData({ ...formData, picture: fileURL });
-    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSuccessMessage(""); 
+    setSuccessMessage("");
+    setErrorMessage("");
+
+    // Vérification des champs avant d'envoyer la requête
+    if (!formData.title || !formData.description || !formData.picture) {
+      setErrorMessage("Tous les champs sont requis.");
+      return;
+    }
 
     try {
-      const response = await fetch("http://127.0.0.1:8000/game/new", {
+      // Construire l'objet JSON à envoyer
+      const jsonData = {
+        title: formData.title,
+        description: formData.description,
+        picture: formData.picture, // URL de l'image
+      };
+
+      // Envoyer la requête
+      fetch("http://127.0.0.1:8000/game/new", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData),
-      });
+        body: JSON.stringify(jsonData),
+      })
+        .then(async (response) => {
+          const responseText = await response.text();
+          console.log("Réponse brute du serveur :", responseText);
 
-      if (!response.ok) {
-        throw new Error("Erreur lors de l'ajout du jeu.");
-      }
+          if (!response.ok) throw new Error(responseText);
 
-      await response.json();
-      setSuccessMessage("Jeu ajouté avec succès ! 🎉");
-      navigate("/");
-
-      // Réinitialisation du formulaire après succès
-      setFormData({
-        title: "",
-        description: "",
-        picture: "",
-      });
+          setSuccessMessage("Jeu ajouté avec succès !");
+          navigate("/");
+          setFormData({
+            title: "",
+            description: "",
+            picture: "",
+          });
+        })
+        .catch((error) => {
+          console.error("Erreur:", error);
+          setErrorMessage("Une erreur est survenue. Veuillez réessayer.");
+        });
     } catch (error) {
-      console.error(error);
-      setSuccessMessage("Une erreur est survenue. Veuillez réessayer.");
+      console.error("Erreur:", error);
+      setErrorMessage("Une erreur est survenue. Veuillez réessayer.");
     }
   };
 
@@ -86,12 +98,14 @@ export default function AjoutJeu() {
         </div>
 
         <div className="mb-4">
-          <label className="block text-gray-300 mb-2">Image</label>
+          <label className="block text-gray-300 mb-2">URL de l'image</label>
           <input
-            type="file"
-            onChange={handleFileChange}
+            type="text"
+            name="picture"
+            value={formData.picture}
+            onChange={handleChange}
             className="w-full p-2 rounded bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-            accept="image/*"
+            placeholder="URL de l'image"
             required
           />
           {formData.picture && (
@@ -99,18 +113,15 @@ export default function AjoutJeu() {
           )}
         </div>
 
-        <button
-          type="submit"
-          className="w-full bg-blue-600 hover:bg-blue-500 text-white py-2 rounded-lg transition duration-300"
-        >
+        <button type="submit" className="w-full bg-blue-600 hover:bg-blue-500 text-white py-2 rounded-lg transition duration-300">
           Ajouter
         </button>
 
-        {/* Affichage du message de succès ou d'erreur */}
         {successMessage && (
-          <p className="mt-4 text-center text-green-400 bg-gray-700 p-2 rounded">
-            {successMessage}
-          </p>
+          <p className="mt-4 text-center text-green-400 bg-gray-700 p-2 rounded">{successMessage}</p>
+        )}
+        {errorMessage && (
+          <p className="mt-4 text-center text-red-400 bg-gray-700 p-2 rounded">{errorMessage}</p>
         )}
       </form>
     </div>
