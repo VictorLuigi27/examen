@@ -37,27 +37,27 @@ export default function Header() {
   }, [search, games]);
 
   return (
-    <div className="bg-blue-950 text-white p-4 border-b-[3px] border-blue-600 shadow-lg pr-[4.5rem] relative">
-      <div className="max-w-screen-lg mx-auto flex items-center justify-between">
-        
+    <div className="bg-blue-950 text-white p-4 border-b-[3px] border-blue-600 shadow-lg relative">
+      <div className="max-w-screen-lg mx-auto flex flex-col sm:flex-row items-center justify-between">
+
         {/* Logo du site */}
-        <Link to={"/"}>
+        <Link to={"/"} className="mb-2 sm:mb-0">
           <h1 className="text-4xl font-bold">PIXEL</h1>
         </Link>
 
         {/* Barre de recherche */}
-        <div className="flex-1 flex justify-center relative">
+        <div className="flex-1 flex justify-center relative mb-2 sm:mb-0">
           <input
             type="text"
             placeholder="Rechercher..."
-            className="w-[15rem] p-2 bg-transparent border-2 border-cyan-400 text-white rounded-full outline-none focus:ring-2 focus:ring-cyan-500 transition duration-300 placeholder-gray-400"
+            className="w-full sm:w-[15rem] p-2 bg-transparent border-2 border-cyan-400 text-white rounded-full outline-none focus:ring-2 focus:ring-cyan-500 transition duration-300 placeholder-gray-400"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
 
           {/* Résultats de recherche affichés sous l'input */}
           {filteredGames.length > 0 && (
-            <div className="absolute top-[2.5rem] w-[15rem] bg-blue-900 border border-cyan-500 rounded-lg shadow-lg mt-1">
+            <div className="absolute top-[2.5rem] w-full sm:w-[15rem] bg-blue-900 border border-cyan-500 rounded-lg shadow-lg mt-1">
               {filteredGames.map((jeu) => (
                 <Link
                   key={jeu.id}
@@ -72,14 +72,25 @@ export default function Header() {
           )}
         </div>
 
-        {/* Bouton pour ajouter un jeu */}
-        <Link to={"/ajouter"}>
-          <button className="bg-green-600 hover:bg-green-500 text-white p-3 rounded-full transition duration-300 shadow-md flex items-center justify-center cursor-pointer">
-            <span className="text-2xl font-bold">+</span>
-          </button>
-        </Link>
+        {/* Boutons (ajouter un jeu et connexion) */}
+        <div className="flex sm:flex-row flex-col gap-2 sm:gap-0 sm:ml-4">
+          <Link to={"/ajouter"}>
+            <button className="bg-green-600 hover:bg-green-500 text-white p-3 rounded-full transition duration-300 shadow-md flex items-center justify-center cursor-pointer sm:mr-2 ml-9">
+              <span className="text-2xl font-bold">+</span>
+            </button>
+          </Link>
+
+          {/* Bouton de connexion */}
+          <Link to={"/connexion"}>
+            <button className="bg-blue-600 hover:bg-blue-500 text-white p-3 rounded-full transition duration-300 shadow-md flex items-center justify-center cursor-pointer">
+              Connexion
+            </button>
+          </Link>
+        </div>
         
       </div>
     </div>
   );
 }
+
+
