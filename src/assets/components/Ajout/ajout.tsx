@@ -36,7 +36,7 @@ export default function AjoutJeu() {
       };
 
       // Envoyer la requête
-      fetch("https://aqueous-hollows-77051-12a75dbea821.herokuapp.com/game/new", {
+      fetch("http://127.0.0.1:8000/game/new", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

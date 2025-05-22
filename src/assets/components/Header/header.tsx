@@ -10,7 +10,7 @@ export default function Header() {
   // Charger les jeux depuis l'API backend
   useEffect(() => {
     console.log("useEffect - Chargement des jeux depuis l'API...");
-    fetch("https://aqueous-hollows-77051-12a75dbea821.herokuapp.com/api/games")  // L'URL de ta route Symfony
+    fetch("http://127.0.0.1:8000/api/games")  // L'URL de ta route Symfony
       .then((res) => res.json())
       .then((data) => {
         console.log("Jeux récupérés:", data);
