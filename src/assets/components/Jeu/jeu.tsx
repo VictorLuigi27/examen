@@ -19,7 +19,7 @@ export default function Jeu() {
   // Charger les données du jeu
   useEffect(() => {
     if (id) {
-      fetch(`http://127.0.0.1:8000/game/${id}`)
+      fetch(`https://aqueous-hollows-77051-12a75dbea821.herokuapp.com/game/${id}`)
         .then((response) => {
           if (!response.ok) {
             throw new Error('Erreur réseau');
@@ -37,7 +37,7 @@ export default function Jeu() {
   const handleDelete = async () => {
     if (id) {
       try {
-        const response = await fetch(`http://127.0.0.1:8000/game/${id}`, {
+        const response = await fetch(`https://aqueous-hollows-77051-12a75dbea821.herokuapp.com/game/${id}`, {
           method: "DELETE",
         });
 
